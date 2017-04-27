@@ -6,11 +6,23 @@ public class PlayerController : MonoBehaviour {
 
 	public float speed = 5;
 	public float turnSpeed = 3;
+
 	private Animator anim;
+	private HealthController health;
 
 	// Use this for initialization
 	void Start () {
+		health = GetComponent<HealthController> ();
+		health.onHealthChanged += AnimateHealth;
 		anim = GetComponent<Animator>();
+	}
+
+	void AnimateHealth(float health, float prevHealth, float maxHealth){
+		if (health <= 0) {
+			anim.SetTrigger ("playerDeath");
+		} else if (health < prevHealth) {
+			anim.SetTrigger ("hitReactBackwards");
+		}
 	}
 
 	// Update is called once per frame
