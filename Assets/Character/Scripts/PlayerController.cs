@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour {
 
 		}
 		if (Input.GetButtonDown ("Fire3")) {
-			anim.SetTrigger ("hitReactBackwards");
+			anim.SetTrigger ("pickUpObject");
 		}
 	}
 }
