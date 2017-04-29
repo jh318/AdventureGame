@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 345cf67ac11467e40a28c21ac5229edb
-timeCreated: 1493433976
+guid: f7449bb9d249e354fafbef318defe6bb
+timeCreated: 1493436651
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Beta_HighJointsGeo
-    100004: Beta_HighLimbsGeo
-    100006: Beta_HighTorsoGeo
-    100008: BetaHighResMeshes
-    100010: Head
+    100000: Beta_HighJointsGeo
+    100002: Beta_HighLimbsGeo
+    100004: Beta_HighTorsoGeo
+    100006: BetaHighResMeshes
+    100008: Head
+    100010: //RootNode
     100012: HeadTop_End
     100014: Hips
     100016: LeftArm
@@ -76,12 +76,12 @@ ModelImporter:
     100136: Spine
     100138: Spine1
     100140: Spine2
-    400000: //RootNode
-    400002: Beta_HighJointsGeo
-    400004: Beta_HighLimbsGeo
-    400006: Beta_HighTorsoGeo
-    400008: BetaHighResMeshes
-    400010: Head
+    400000: Beta_HighJointsGeo
+    400002: Beta_HighLimbsGeo
+    400004: Beta_HighTorsoGeo
+    400006: BetaHighResMeshes
+    400008: Head
+    400010: //RootNode
     400012: HeadTop_End
     400014: Hips
     400016: LeftArm
@@ -150,7 +150,7 @@ ModelImporter:
     4300000: Beta_HighLimbsGeo
     4300002: Beta_HighTorsoGeo
     4300004: Beta_HighJointsGeo
-    7400000: BackFlip
+    7400000: HeadSpinExtreme
     9500000: //RootNode
     13700000: Beta_HighJointsGeo
     13700002: Beta_HighLimbsGeo
@@ -171,7 +171,7 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -179,10 +179,10 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: BackFlip
+      name: HeadSpinExtreme
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 65
+      lastFrame: 24
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -206,13 +206,13 @@ ModelImporter:
       - path: 
         weight: 1
       - path: BetaHighResMeshes
-        weight: 0
+        weight: 1
       - path: BetaHighResMeshes/Beta_HighJointsGeo
-        weight: 0
+        weight: 1
       - path: BetaHighResMeshes/Beta_HighLimbsGeo
-        weight: 0
+        weight: 1
       - path: BetaHighResMeshes/Beta_HighTorsoGeo
-        weight: 0
+        weight: 1
       - path: Hips
         weight: 1
       - path: Hips/LeftUpLeg
@@ -224,7 +224,7 @@ ModelImporter:
       - path: Hips/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase
         weight: 1
       - path: Hips/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase/LeftFootToeBase_End
-        weight: 0
+        weight: 1
       - path: Hips/RightUpLeg
         weight: 1
       - path: Hips/RightUpLeg/RightLeg
@@ -234,7 +234,7 @@ ModelImporter:
       - path: Hips/RightUpLeg/RightLeg/RightFoot/RightToeBase
         weight: 1
       - path: Hips/RightUpLeg/RightLeg/RightFoot/RightToeBase/RightFootToeBase_End
-        weight: 0
+        weight: 1
       - path: Hips/Spine
         weight: 1
       - path: Hips/Spine/Spine1
@@ -256,7 +256,7 @@ ModelImporter:
       - path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2/LeftHandIndex3
         weight: 1
       - path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2/LeftHandIndex3/LeftHandIndex4
-        weight: 0
+        weight: 1
       - path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandMiddle1
         weight: 1
       - path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandMiddle1/LeftHandMiddle2
@@ -264,7 +264,7 @@ ModelImporter:
       - path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandMiddle1/LeftHandMiddle2/LeftHandMiddle3
         weight: 1
       - path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandMiddle1/LeftHandMiddle2/LeftHandMiddle3/LeftHandMiddle4
-        weight: 0
+        weight: 1
       - path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandPinky1
         weight: 1
       - path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandPinky1/LeftHandPinky2
@@ -272,7 +272,7 @@ ModelImporter:
       - path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandPinky1/LeftHandPinky2/LeftHandPinky3
         weight: 1
       - path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandPinky1/LeftHandPinky2/LeftHandPinky3/LeftHandPinky4
-        weight: 0
+        weight: 1
       - path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandRing1
         weight: 1
       - path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandRing1/LeftHandRing2
@@ -280,7 +280,7 @@ ModelImporter:
       - path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandRing1/LeftHandRing2/LeftHandRing3
         weight: 1
       - path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandRing1/LeftHandRing2/LeftHandRing3/LeftHandRing4
-        weight: 0
+        weight: 1
       - path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1
         weight: 1
       - path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2
@@ -288,7 +288,7 @@ ModelImporter:
       - path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2/LeftHandThumb3
         weight: 1
       - path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2/LeftHandThumb3/LeftHandThumb4
-        weight: 0
+        weight: 1
       - path: Hips/Spine/Spine1/Spine2/Neck
         weight: 1
       - path: Hips/Spine/Spine1/Spine2/Neck/Neck1
@@ -296,7 +296,7 @@ ModelImporter:
       - path: Hips/Spine/Spine1/Spine2/Neck/Neck1/Head
         weight: 1
       - path: Hips/Spine/Spine1/Spine2/Neck/Neck1/Head/HeadTop_End
-        weight: 0
+        weight: 1
       - path: Hips/Spine/Spine1/Spine2/RightShoulder
         weight: 1
       - path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm
@@ -312,7 +312,7 @@ ModelImporter:
       - path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2/RightHandIndex3
         weight: 1
       - path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2/RightHandIndex3/RightHandIndex4
-        weight: 0
+        weight: 1
       - path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandMiddle1
         weight: 1
       - path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandMiddle1/RightHandMiddle2
@@ -320,7 +320,7 @@ ModelImporter:
       - path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandMiddle1/RightHandMiddle2/RightHandMiddle3
         weight: 1
       - path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandMiddle1/RightHandMiddle2/RightHandMiddle3/RightHandMiddle4
-        weight: 0
+        weight: 1
       - path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandPinky1
         weight: 1
       - path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandPinky1/RightHandPinky2
@@ -328,7 +328,7 @@ ModelImporter:
       - path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandPinky1/RightHandPinky2/RightHandPinky3
         weight: 1
       - path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandPinky1/RightHandPinky2/RightHandPinky3/RightHandPinky4
-        weight: 0
+        weight: 1
       - path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandRing1
         weight: 1
       - path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandRing1/RightHandRing2
@@ -336,7 +336,7 @@ ModelImporter:
       - path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandRing1/RightHandRing2/RightHandRing3
         weight: 1
       - path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandRing1/RightHandRing2/RightHandRing3/RightHandRing4
-        weight: 0
+        weight: 1
       - path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1
         weight: 1
       - path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2
@@ -344,7 +344,7 @@ ModelImporter:
       - path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2/RightHandThumb3
         weight: 1
       - path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2/RightHandThumb3/RightHandThumb4
-        weight: 0
+        weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
@@ -386,7 +386,7 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
