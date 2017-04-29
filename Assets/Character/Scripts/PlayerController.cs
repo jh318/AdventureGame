@@ -44,5 +44,10 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetButtonDown ("Fire3")) {
 			anim.SetTrigger ("pickUpObject");
 		}
+		if (Input.GetKeyDown (KeyCode.Keypad1))
+			anim.SetTrigger ("headSpin");
+		
+		if (Input.GetKeyDown (KeyCode.Keypad2))
+			anim.SetTrigger ("backFlip");
 	}
 }
