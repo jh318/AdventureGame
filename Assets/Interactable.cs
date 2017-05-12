@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Sign : MonoBehaviour {
+public class Interactable : MonoBehaviour {
 
 	public Text textBox;
 	public Text promptBox;
 
 	public string textBoxString;
 	public string promptBoxString;
+
+	bool displayText = false;
+	bool displayPrompt = false;
 
 	void Start()
 	{
@@ -21,37 +24,43 @@ public class Sign : MonoBehaviour {
 	{
 		if (c.GetComponent<PlayerController>())
 		{
-			Debug.Log ("Sign Works");
 			promptBox.text = promptBoxString;
 			promptBox.gameObject.SetActive(true);
+			displayPrompt = true;
 		}
 	}
-		
+
 	void OnTriggerExit(Collider c)
 	{
+		Debug.Log ("On Trigger Exit works");
+		promptBox.gameObject.SetActive(false);
 		textBox.gameObject.SetActive(false);
-		textBox.gameObject.SetActive(false);
+		displayPrompt = false;
+		displayText = false;
 	}
 
 	void Update()
 	{
-		SignInputCheck ();
+		InteractableInputCheck ();
 	}
-
-
-
-	void SignInputCheck()
+		
+	void InteractableInputCheck()
 	{
-		if (promptBox.gameObject.activeSelf == true && Input.GetKeyDown(KeyCode.X)) 
+		if (displayPrompt && Input.GetKeyDown(KeyCode.X)) 
 		{
+			Debug.Log ("A");
+			displayText = true;
+			displayPrompt = false;
 			textBox.text = textBoxString;
-			textBox.gameObject.SetActive (true);
 			promptBox.gameObject.SetActive (false);
-			Debug.Log ("Pressed button");
+			textBox.gameObject.SetActive (true);
 		}
 
-		else if (textBox.gameObject.activeSelf == true && Input.GetKeyDown (KeyCode.X)) 
+		else if (displayText && Input.GetKeyDown (KeyCode.X)) 
 		{
+			Debug.Log ("B");
+			displayPrompt = true;
+			displayText = false;
 			textBox.gameObject.SetActive (false);
 			promptBox.gameObject.SetActive (true);
 		}

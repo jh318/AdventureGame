@@ -1127,13 +1127,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 818479621}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc70735909bea0840baa98c9f5dfab68, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a52486b7510d134e8d9a1a391f34a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 2099563895}
   promptBox: {fileID: 101468538}
-  textBoxString: Read Sign
-  promptBoxString: You are reading the sign
+  textBoxString: You are reading a sign
+  promptBoxString: Read Sign
 --- !u!1 &921465159
 GameObject:
   m_ObjectHideFlags: 0
@@ -1686,6 +1686,7 @@ GameObject:
   - component: {fileID: 1810553459}
   - component: {fileID: 1810553460}
   - component: {fileID: 1810553461}
+  - component: {fileID: 1810553462}
   m_Layer: 0
   m_Name: DoorGeneric
   m_TagString: Untagged
@@ -1770,10 +1771,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa46099d307b2df4ab1c20155648b7f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textBox: {fileID: 2099563895}
-  promptBox: {fileID: 101468538}
-  textBoxString: The Button Worked
-  promptBoxString: Open Door
 --- !u!95 &1810553461
 Animator:
   serializedVersion: 3
@@ -1791,6 +1788,21 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1810553462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1810553455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a52486b7510d134e8d9a1a391f34a63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBox: {fileID: 2099563895}
+  promptBox: {fileID: 101468538}
+  textBoxString: TextString
+  promptBoxString: Prompt String
 --- !u!1 &1828993473
 GameObject:
   m_ObjectHideFlags: 0

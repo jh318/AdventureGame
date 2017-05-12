@@ -5,66 +5,37 @@ using UnityEngine.UI;
 
 public class Door : MonoBehaviour {
 
-	public Text textBox;
-	public Text promptBox;
-
-	public string textBoxString;
-	public string promptBoxString;
-
 	Animator animator;
-
+	bool isColliding;
 
 	void Start()
 	{
-		textBox.gameObject.SetActive(false);
-		promptBox.gameObject.SetActive(false);
+		
 		animator = GetComponent<Animator> ();
 	}
-
-	void OnTriggerEnter(Collider c)
-	{
-		if (c.GetComponent<PlayerController>())
-		{
-			Debug.Log ("Door Works");
-			promptBox.text = promptBoxString;
-			promptBox.gameObject.SetActive(true);
-		}
-	}
 		
-	void OnTriggerExit(Collider c)
+	void OnTriggerEnter()
 	{
-		textBox.gameObject.SetActive(false);
-		textBox.gameObject.SetActive(false);
+		isColliding = true;
+	}
+
+	void OnTriggerExit()
+	{
+		isColliding = false;
 	}
 
 	void Update()
 	{
-		DoorInputCheck ();
+		OpenDoor ();
 	}
-
-
-
-	void DoorInputCheck()
-	{
-		if (promptBox.gameObject.activeSelf == true && Input.GetKeyDown(KeyCode.X)) 
-		{
-			textBox.text = textBoxString;
-			animator.SetTrigger ("OpenDoorTrigger");
-			textBox.gameObject.SetActive (true);
-			promptBox.gameObject.SetActive (false);
-		}
-
-		else if (textBox.gameObject.activeSelf == true && Input.GetKeyDown (KeyCode.X)) 
-		{
-			//CloseDoor ();
-			textBox.gameObject.SetActive (false);
-			promptBox.gameObject.SetActive (true);
-		}
-	}
+		
 
 	void OpenDoor()
 	{
-		transform.rotation = Quaternion.AngleAxis (90, Vector3.left);
+		if (isColliding && Input.GetKeyDown (KeyCode.X))
+		{
+			animator.SetTrigger ("OpenDoorTrigger");
+		}
 	}
 
 	void CloseDoor()
