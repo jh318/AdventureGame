@@ -295,7 +295,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &175503624
 MeshRenderer:
@@ -454,6 +454,7 @@ GameObject:
   - component: {fileID: 340342473}
   - component: {fileID: 340342472}
   - component: {fileID: 340342471}
+  - component: {fileID: 340342474}
   m_Layer: 0
   m_Name: WallDoor
   m_TagString: Untagged
@@ -511,10 +512,26 @@ Transform:
   m_LocalRotation: {x: -0.0000020191073, y: 0.7071068, z: 0.7071068, w: 0.0000020191073}
   m_LocalPosition: {x: -5, y: 0, z: -1.8663197}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1810553458}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 180.00002}
+--- !u!114 &340342474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 340342470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a52486b7510d134e8d9a1a391f34a63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBox: {fileID: 2099563895}
+  promptBox: {fileID: 101468538}
+  textBoxString: 
+  promptBoxString: 
 --- !u!1001 &341320404
 Prefab:
   m_ObjectHideFlags: 0
@@ -1686,7 +1703,6 @@ GameObject:
   - component: {fileID: 1810553459}
   - component: {fileID: 1810553460}
   - component: {fileID: 1810553461}
-  - component: {fileID: 1810553462}
   m_Layer: 0
   m_Name: DoorGeneric
   m_TagString: Untagged
@@ -1741,13 +1757,13 @@ Transform:
   m_PrefabParentObject: {fileID: 400002, guid: ccd9823a7b71bbc499ab222c488436a7, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1810553455}
-  m_LocalRotation: {x: -0.0000020191073, y: 0.7071068, z: 0.7071068, w: 0.0000020191073}
-  m_LocalPosition: {x: -5, y: 0, z: -1.364}
-  m_LocalScale: {x: 1.0465274, y: 0.49918625, z: 0.849098}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.50231975, z: 0}
+  m_LocalScale: {x: 1.0465283, y: 0.4991865, z: 0.8490985}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 180.00002}
+  m_Father: {fileID: 340342473}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1810553459
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1788,21 +1804,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &1810553462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1810553455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a52486b7510d134e8d9a1a391f34a63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textBox: {fileID: 2099563895}
-  promptBox: {fileID: 101468538}
-  textBoxString: TextString
-  promptBoxString: Prompt String
 --- !u!1 &1828993473
 GameObject:
   m_ObjectHideFlags: 0

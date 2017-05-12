@@ -26,20 +26,15 @@ public class Door : MonoBehaviour {
 
 	void Update()
 	{
-		OpenDoor ();
+		ToggleDoor ();
 	}
 		
 
-	void OpenDoor()
+	void ToggleDoor()
 	{
 		if (isColliding && Input.GetKeyDown (KeyCode.X))
 		{
-			animator.SetTrigger ("OpenDoorTrigger");
+			animator.SetTrigger ("ToggleDoor");
 		}
-	}
-
-	void CloseDoor()
-	{
-		transform.rotation = Quaternion.AngleAxis (90, Vector3.left);
 	}
 }
