@@ -12227,18 +12227,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 4173594375787798, guid: d749e649d7d96c649930cf13bea47ffa, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4173594375787798, guid: d749e649d7d96c649930cf13bea47ffa, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1.000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4173594375787798, guid: d749e649d7d96c649930cf13bea47ffa, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1.000001
-      objectReference: {fileID: 0}
     - target: {fileID: 1324418895530142, guid: d749e649d7d96c649930cf13bea47ffa, type: 2}
       propertyPath: m_Name
       value: Floor (18)
@@ -30691,31 +30679,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 22
       objectReference: {fileID: 0}
-    - target: {fileID: 114633693173699288, guid: 33144d3930ec784449b5a5c4d29bd89e,
-        type: 2}
-      propertyPath: textBox
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114633693173699288, guid: 33144d3930ec784449b5a5c4d29bd89e,
-        type: 2}
-      propertyPath: promptBox
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1176679397795832, guid: 33144d3930ec784449b5a5c4d29bd89e, type: 2}
       propertyPath: m_Name
       value: WallDoor (18)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4909841675799464, guid: 33144d3930ec784449b5a5c4d29bd89e, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.0000005
-      objectReference: {fileID: 0}
-    - target: {fileID: 4909841675799464, guid: 33144d3930ec784449b5a5c4d29bd89e, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1.0000005
-      objectReference: {fileID: 0}
-    - target: {fileID: 4909841675799464, guid: 33144d3930ec784449b5a5c4d29bd89e, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1.0000005
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33144d3930ec784449b5a5c4d29bd89e, type: 2}
@@ -60698,18 +60664,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 4173594375787798, guid: d749e649d7d96c649930cf13bea47ffa, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4173594375787798, guid: d749e649d7d96c649930cf13bea47ffa, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1.000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4173594375787798, guid: d749e649d7d96c649930cf13bea47ffa, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1.000001
-      objectReference: {fileID: 0}
     - target: {fileID: 1324418895530142, guid: d749e649d7d96c649930cf13bea47ffa, type: 2}
       propertyPath: m_Name
       value: Floor (10)
@@ -81694,7 +81648,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f6bb2a2fba3c51644848837f5c446d12, type: 2}
+  - {fileID: 2100000, guid: 2c66a1f943ca26447a56f3ee84878200, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
