@@ -13,6 +13,10 @@ ModelImporter:
     100010: Wall
     100012: WallCurved
     100014: WallDoor
+    100016: WallCurvedReverse
+    100018: WallCurvedReverseBig
+    100020: CircleFloor
+    100022: FloorTurn
     400000: Ceiling
     400002: DoorGeneric
     400004: Floor
@@ -21,6 +25,10 @@ ModelImporter:
     400010: Wall
     400012: WallCurved
     400014: WallDoor
+    400016: WallCurvedReverse
+    400018: WallCurvedReverseBig
+    400020: CircleFloor
+    400022: FloorTurn
     2300000: Ceiling
     2300002: DoorGeneric
     2300004: Floor
@@ -28,6 +36,10 @@ ModelImporter:
     2300008: Wall
     2300010: WallCurved
     2300012: WallDoor
+    2300014: WallCurvedReverse
+    2300016: WallCurvedReverseBig
+    2300018: CircleFloor
+    2300020: FloorTurn
     3300000: Ceiling
     3300002: DoorGeneric
     3300004: Floor
@@ -35,6 +47,10 @@ ModelImporter:
     3300008: Wall
     3300010: WallCurved
     3300012: WallDoor
+    3300014: WallCurvedReverse
+    3300016: WallCurvedReverseBig
+    3300018: CircleFloor
+    3300020: FloorTurn
     4300000: DoorGeneric
     4300002: Ramp
     4300004: WallCurved
@@ -42,6 +58,10 @@ ModelImporter:
     4300008: Ceiling
     4300010: Wall
     4300012: Floor
+    4300014: WallCurvedReverse
+    4300016: WallCurvedReverseBig
+    4300018: CircleFloor
+    4300020: FloorTurn
     7400000: Default Take
     9500000: //RootNode
   materials:
