@@ -161,7 +161,8 @@ ModelImporter:
     400152: Spine
     400154: TongueBack
     400156: TongueTip
-    7400000: RunBackward_NtrlFaceFwd
+    7400000: RunBackwards
+    7400002: _25_a_U1_M_P_RunBackward_NtrlFaceFwd__Fb_p0_No_0_PJ_4
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -174,7 +175,12 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: 
+    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Errors found in
+      old project file will be treated as a warnings. Configuration mis-match will
+      be ignored, but current Configuration needs to be fixed:\n\tTransform 'Pivot'
+      not found in HumanDescription.\nCopied Avatar Rig Configuration mis-match. Bone
+      length in copied configuration does not match position in animation file:\n\t'LeftLeg'
+      : position error = 7.696520 mm\n\t'LeftFoot' : position error = 15.233778 mm\n"
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -187,20 +193,20 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: RunBackward_NtrlFaceFwd
+      name: RunBackwards
       takeName: _25_a_U1_M_P_RunBackward_NtrlFaceFwd__Fb_p0_No_0_PJ_4
-      firstFrame: 165
-      lastFrame: 800
+      firstFrame: 225
+      lastFrame: 241.29999
       wrapMode: 0
-      orientationOffsetY: 0
+      orientationOffsetY: -7.7
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
