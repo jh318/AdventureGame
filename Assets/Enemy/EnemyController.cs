@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour {
 	public float maxSpeed = 5;
-	public float maxTurnSpeed = 3.5f;
+	public float maxTurnSpeedChange = 3.5f;
 	public float maxSpeedChange = 0.5f;
 	public float wanderAmount = 1;
+	public float preAttackDistance = 4;
 
 	private Animator anim;
 	private Rigidbody body;
@@ -19,6 +20,7 @@ public class EnemyController : MonoBehaviour {
 	//Vector3 heading = (target.position - transform.position).normalized;
 	//Vector3 targetVelocity = heading * maxSpeed;
 	//		Vector3 heading = body.velocity.normalized;
+	//			float distanceChange = preAttackDistance - Vector3.Distance (transform.position, target.position);
 
 
 	void Start () {
@@ -29,11 +31,22 @@ public class EnemyController : MonoBehaviour {
 	}
 
 	IEnumerator WanderCoroutine(){
-		bool seesTarget = false;
-		while (!seesTarget) {
+		while (Vector3.Distance(transform.position, target.position) > 5) {
 			targetVelocity = transform.forward * maxSpeed + Random.insideUnitSphere * wanderAmount;
 			targetFacing = targetVelocity.normalized;
+			targetVelocity = transform.right * maxSpeed;
 			yield return new WaitForSeconds (0.5f);
+		}
+		StartCoroutine ("AttackCoroutine");
+	}
+
+	IEnumerator AttackCoroutine(){
+		HealthController playerHealth = target.gameObject.GetComponent<HealthController> ();
+		while (playerHealth.health > 0) {
+			Vector3 diff = target.position - transform.position;
+			targetFacing = diff.normalized;
+			targetVelocity = transform.right * maxSpeed + targetFacing * (diff.magnitude - preAttackDistance);
+			yield return new WaitForEndOfFrame ();
 		}
 	}
 
@@ -57,7 +70,9 @@ public class EnemyController : MonoBehaviour {
 		velocityChange = velocityChange.normalized * Mathf.Clamp (velocityChange.magnitude, 0, maxSpeedChange);
 		body.AddForce (velocityChange, ForceMode.VelocityChange);
 
-		float turnSpeed = Vector3.Cross (transform.forward, targetFacing).y * maxTurnSpeed;
-		body.angularVelocity = Vector3.up * turnSpeed;
+		float targetTurnSpeed = Vector3.Cross (transform.forward, targetFacing).y * maxTurnSpeedChange;
+		float turnSpeedChange = targetTurnSpeed - body.angularVelocity.y;
+		turnSpeedChange = Mathf.Clamp (turnSpeedChange, -maxTurnSpeedChange, maxTurnSpeedChange);
+		body.AddTorque (Vector3.up * turnSpeedChange, ForceMode.VelocityChange);
 	}
 }
