@@ -218,8 +218,8 @@ GameObject:
   - component: {fileID: 95175920098627998}
   - component: {fileID: 54114831392514604}
   - component: {fileID: 136324935595475558}
-  - component: {fileID: 114232126497286784}
   - component: {fileID: 114767992883556484}
+  - component: {fileID: 114269213941790956}
   m_Layer: 0
   m_Name: BasicEnemy
   m_TagString: Player
@@ -721,7 +721,7 @@ Animator:
     'Spine'\n\tTransform 'Hips'\n\tFrom animation clip 'Chill'"
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114232126497286784
+--- !u!114 &114269213941790956
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -729,13 +729,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1621922115086156}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8d5d0cf2f154f0498e4540c216a8c94, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a1ffe8a0795c164bbbd376888e95af6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 5
-  maxTurnSpeed: 3.5
-  maxForwardVelocity: 5
-  maxTurnVelocity: 3.5
+  maxTurnSpeedChange: 3.5
+  maxSpeedChange: 0.5
+  wanderAmount: 1
+  preAttackDistance: 4
 --- !u!114 &114767992883556484
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -748,6 +749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  health: 0
 --- !u!136 &136324935595475558
 CapsuleCollider:
   m_ObjectHideFlags: 1
