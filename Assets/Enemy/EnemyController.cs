@@ -8,10 +8,12 @@ public class EnemyController : MonoBehaviour {
 	public float maxSpeedChange = 0.5f;
 	public float wanderAmount = 1;
 	public float preAttackDistance = 4;
+	public float attackRange = 0.1f;
 
 	private Animator anim;
 	private Rigidbody body;
 	private Transform target;
+	private HealthController playerHealth;
 
 	Vector3 targetVelocity;
 	Vector3 targetFacing;
@@ -23,32 +25,67 @@ public class EnemyController : MonoBehaviour {
 	//			float distanceChange = preAttackDistance - Vector3.Distance (transform.position, target.position);
 
 
-	void Start () {
+	void Start () 
+	{
 		anim = GetComponent<Animator> ();
 		body = GetComponent<Rigidbody> ();
 		target = GameObject.FindWithTag ("Player").transform;
-		StartCoroutine ("WanderCoroutine");
+		StartCoroutine ("WanderState");
+		playerHealth = target.gameObject.GetComponent<HealthController> ();
+
 	}
 
-	IEnumerator WanderCoroutine(){
-		while (Vector3.Distance(transform.position, target.position) > 5) {
+	IEnumerator WanderState()
+	{
+		while (Vector3.Distance(transform.position, target.position) > 5)
+		{
 			targetVelocity = transform.forward * maxSpeed + Random.insideUnitSphere * wanderAmount;
 			targetFacing = targetVelocity.normalized;
 			targetVelocity = transform.right * maxSpeed;
 			yield return new WaitForSeconds (0.5f);
 		}
-		StartCoroutine ("AttackCoroutine");
+		StartCoroutine ("EngagePlayerState");
 	}
 
-	IEnumerator AttackCoroutine(){
-		HealthController playerHealth = target.gameObject.GetComponent<HealthController> ();
-		while (playerHealth.health > 0) {
+	IEnumerator EngagePlayerState()
+	{
+		while (playerHealth.health > 0 && Vector3.Distance (transform.position, target.position) < 10) 
+		{
+			yield return StartCoroutine ("CirclePlayerState");
+			yield return StartCoroutine ("AttackState");
+
+		}
+		StartCoroutine ("WanderState");
+		yield return new WaitForEndOfFrame ();
+	}
+
+	IEnumerator CirclePlayerState() 
+	{
+		for (float t = 0; t < 3; t += Time.deltaTime) 
+		{
 			Vector3 diff = target.position - transform.position;
 			targetFacing = diff.normalized;
-			targetVelocity = transform.right * maxSpeed + targetFacing * (diff.magnitude - preAttackDistance);
+			targetVelocity = -transform.right * maxSpeed + targetFacing * (diff.magnitude - preAttackDistance);
 			yield return new WaitForEndOfFrame ();
 		}
 	}
+
+	IEnumerator AttackState()
+	{
+		while (Vector3.Distance (transform.position, target.position) > 1)
+		{
+			Vector3 diff = target.position - transform.position;
+			targetFacing = diff.normalized;
+			targetVelocity = transform.forward * maxSpeed;
+			yield return new WaitForEndOfFrame ();
+		}
+
+		targetVelocity = new Vector3 (0, 0, 0);
+		anim.SetTrigger ("fireball");
+		yield return new WaitForSeconds(2.0f);
+	}
+
+	 
 
 	void Update(){
 		Vector3 heading = body.velocity.normalized;
