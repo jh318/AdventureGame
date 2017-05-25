@@ -12,12 +12,13 @@ public class PlayerController : MonoBehaviour {
 	public GameObject projectileSpawn;
 	//public float maxForwardVelocity = 5f;
 	//public float maxTurnVelocity = 3.5f;
+	public float shootCoolDown = 1.0f;
 
 	private Animator anim;
 	private HealthController health;
 	private Rigidbody body;
 	private Vector3 targetVelocity;
-
+	private float shootCooldownTimer;
 
 	// Use this for initialization
 	void Start () {
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour {
 		health.onHealthChanged += AnimateHealth;
 		anim = GetComponent<Animator>();
 		body = GetComponent<Rigidbody> ();
+		shootCooldownTimer = Time.time - shootCoolDown;
 	}
 
 	void AnimateHealth(float health, float prevHealth, float maxHealth){
@@ -55,9 +57,11 @@ public class PlayerController : MonoBehaviour {
 
 
 		//Stupid Anim Stuff
-		if(Input.GetButtonDown("Jump")){
+		//if cooldown time is over, shoot bullet
+		if((Time.time - shootCooldownTimer > shootCoolDown) && Input.GetButtonDown("Jump")){
 			anim.SetTrigger ("fireball");
 			ShootProjectile ();
+			shootCooldownTimer = Time.time;
 		}
 		if (Input.GetButtonDown ("Fire2")) {
 			anim.SetTrigger ("fireball");
@@ -91,5 +95,4 @@ public class PlayerController : MonoBehaviour {
 		Rigidbody bulletBody = bullet.GetComponent<Rigidbody> ();
 		bulletBody.velocity = gameObject.transform.forward * projectileSpeed;
 	}
-
 }

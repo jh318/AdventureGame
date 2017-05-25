@@ -10,4 +10,9 @@ public class DamageController : MonoBehaviour {
 		HealthController h = c.gameObject.GetComponent<HealthController> ();
 		if (h != null ) h.TakeDamage (damage);
 	}
+
+	void OnTriggerEnter(Collider c){
+		HealthController h = c.gameObject.GetComponent<HealthController> ();
+		if (h != null ) h.TakeDamage (damage);
+	}
 }
