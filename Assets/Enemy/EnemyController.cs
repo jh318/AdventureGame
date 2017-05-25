@@ -14,6 +14,7 @@ public class EnemyController : MonoBehaviour {
 	private Rigidbody body;
 	private Transform target;
 	private HealthController playerHealth;
+	private HealthController enemyHealth;
 
 	Vector3 targetVelocity;
 	Vector3 targetFacing;
@@ -32,6 +33,7 @@ public class EnemyController : MonoBehaviour {
 		target = GameObject.FindWithTag ("Player").transform;
 		StartCoroutine ("WanderState");
 		playerHealth = target.gameObject.GetComponent<HealthController> ();
+		enemyHealth = GetComponent<HealthController> ();
 
 	}
 
@@ -95,6 +97,12 @@ public class EnemyController : MonoBehaviour {
 		anim.SetFloat ("speed", speed);
 		anim.SetFloat ("forwardVelocity", forward * speed);
 		anim.SetFloat ("turnVelocity", body.angularVelocity.y);
+
+		if (enemyHealth.health <= 0) {
+			anim.SetTrigger("playerDeath");
+			gameObject.SetActive (false);
+		}
+			
 	}
 	
 	void FixedUpdate () {

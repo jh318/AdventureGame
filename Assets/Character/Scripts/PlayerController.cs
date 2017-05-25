@@ -7,6 +7,9 @@ public class PlayerController : MonoBehaviour {
 	public float maxSpeed = 5;
 	public float maxSpeedChange = 0.3f;
 	public float maxTurnSpeed = 3.5f;
+	public float projectileSpeed = 5;
+	public GameObject projectile;
+	public GameObject projectileSpawn;
 	//public float maxForwardVelocity = 5f;
 	//public float maxTurnVelocity = 3.5f;
 
@@ -52,8 +55,9 @@ public class PlayerController : MonoBehaviour {
 
 
 		//Stupid Anim Stuff
-		if (Input.GetButtonDown ("Jump")) {
-			anim.SetTrigger ("playerDeath");
+		if(Input.GetButtonDown("Jump")){
+			anim.SetTrigger ("fireball");
+			ShootProjectile ();
 		}
 		if (Input.GetButtonDown ("Fire2")) {
 			anim.SetTrigger ("fireball");
@@ -82,6 +86,10 @@ public class PlayerController : MonoBehaviour {
 		float turnSpeed = Vector3.Cross (transform.forward, heading).y * maxTurnSpeed;
 		body.angularVelocity = Vector3.up * turnSpeed;
 	}
-
+	void ShootProjectile(){
+		GameObject bullet = Instantiate (projectile, (projectileSpawn.transform.position), Quaternion.identity);
+		Rigidbody bulletBody = bullet.GetComponent<Rigidbody> ();
+		bulletBody.velocity = gameObject.transform.forward * projectileSpeed;
+	}
 
 }

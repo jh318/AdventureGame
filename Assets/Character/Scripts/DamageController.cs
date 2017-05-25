@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class DamageController : MonoBehaviour {
 
+	public int damage = 10;
+
 	void OnCollisionEnter(Collision c){
 		HealthController h = c.gameObject.GetComponent<HealthController> ();
-		if (h != null ) h.TakeDamage (1);
+		if (h != null ) h.TakeDamage (damage);
 	}
 }
