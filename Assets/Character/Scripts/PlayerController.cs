@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 		Transform cam = Camera.main.transform;
 		Vector3 targetRight = Input.GetAxis ("Horizontal") * cam.right;
-		Vector3 targetForward = Input.GetAxis ("Vertical") * cam.forward;
+		Vector3 targetForward = Input.GetAxis ("Vertical") * cam.up;
 		targetVelocity = targetRight + targetForward;
 		targetVelocity.y = 0;
 		targetVelocity = targetVelocity.normalized * maxSpeed;
