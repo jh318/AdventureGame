@@ -8,6 +8,9 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Start(){
 		body = GetComponent<Rigidbody> ();
+	}
 
+	void FixedUpdate(){
+		
 	}
 }
