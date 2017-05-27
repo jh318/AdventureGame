@@ -7,6 +7,7 @@ public class Door : MonoBehaviour {
 
 	Animator animator;
 	bool isColliding;
+	public GameObject door;
 
 	void Start()
 	{
@@ -33,8 +34,18 @@ public class Door : MonoBehaviour {
 	void ToggleDoor()
 	{
 		if (isColliding && Input.GetKeyDown (KeyCode.X))
-		{
-			animator.SetTrigger ("ToggleDoor");
+		{	
+			if (door.GetComponent<MeshRenderer> ().enabled == false) {
+				door.GetComponent<MeshRenderer>().enabled = true;
+				door.GetComponent<BoxCollider> ().enabled = true;
+			}
+			//animator.SetTrigger ("ToggleDoor");
+			else if(door.GetComponent<MeshRenderer>().enabled == true){
+				door.GetComponent<MeshRenderer>().enabled = false;
+				door.GetComponent<BoxCollider> ().enabled = false;
+			}
+
+		
 		}
 	}
 }
