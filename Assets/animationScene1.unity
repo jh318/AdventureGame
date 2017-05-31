@@ -11775,7 +11775,7 @@ Transform:
   m_LocalScale: {x: 1.000001, y: 1.0000005, z: 1.0000005}
   m_Children: []
   m_Father: {fileID: 1123034570}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -180.00002}
 --- !u!65 &222853762
 BoxCollider:
@@ -58996,7 +58996,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1123034570}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -90.00001}
 --- !u!23 &1077917224
 MeshRenderer:
@@ -61256,9 +61256,9 @@ Transform:
   m_Children:
   - {fileID: 1804781459}
   - {fileID: 1453442535}
-  - {fileID: 233015070}
   - {fileID: 1326658234}
   - {fileID: 1077917223}
+  - {fileID: 233015070}
   - {fileID: 1476773172}
   - {fileID: 1206197329}
   - {fileID: 2065602488}
@@ -61272,9 +61272,9 @@ Transform:
   - {fileID: 1931025137}
   - {fileID: 814006085}
   - {fileID: 253523634}
-  - {fileID: 2069162260}
   - {fileID: 1554529738}
   - {fileID: 222853761}
+  - {fileID: 2069162260}
   - {fileID: 961820466}
   - {fileID: 826662561}
   - {fileID: 252065268}
@@ -72085,7 +72085,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1123034570}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -90.00001}
 --- !u!23 &1326658235
 MeshRenderer:
@@ -85435,10 +85435,10 @@ MonoBehaviour:
   maxSpeed: 5
   maxSpeedChange: 0.5
   maxTurnSpeed: 3.5
-  projectileSpeed: 5
-  projectile: {fileID: 0}
+  projectileSpeed: 10
+  projectile: {fileID: 1544696365658330, guid: b71ca1fc7c915eb4981201a56eb43ace, type: 2}
   projectileSpawn: {fileID: 1214065631}
-  shootCoolDown: 1
+  shootCoolDown: 0.05
 --- !u!54 &1552075313
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -85635,7 +85635,7 @@ Transform:
   m_LocalScale: {x: 1.000001, y: 1.0000005, z: 1.0000005}
   m_Children: []
   m_Father: {fileID: 1123034570}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -180.00002}
 --- !u!23 &1554529739
 MeshRenderer:

@@ -58,8 +58,8 @@ public class PlayerController : MonoBehaviour {
 
 		//Stupid Anim Stuff
 		//if cooldown time is over, shoot bullet
-		if((Time.time - shootCooldownTimer > shootCoolDown) && Input.GetButtonDown("Jump")){
-			anim.SetTrigger ("fireball");
+		if((Time.time - shootCooldownTimer > shootCoolDown) && Input.GetButton("Jump")){
+			//anim.SetTrigger ("fireball");
 			ShootProjectile ();
 			shootCooldownTimer = Time.time;
 		}
@@ -75,6 +75,8 @@ public class PlayerController : MonoBehaviour {
 		
 		if (Input.GetKeyDown (KeyCode.Keypad2))
 			anim.SetTrigger ("backFlip");
+
+		GetAxis ();
 	}
 	void FixedUpdate()
 	{
@@ -94,5 +96,12 @@ public class PlayerController : MonoBehaviour {
 		GameObject bullet = Instantiate (projectile, (projectileSpawn.transform.position), Quaternion.identity);
 		Rigidbody bulletBody = bullet.GetComponent<Rigidbody> ();
 		bulletBody.velocity = gameObject.transform.forward * projectileSpeed;
+	}
+
+	void GetAxis(){
+		if(Input.GetAxis("RightStickX") > 0)
+			Debug.Log("RIGHT");
+		if (Input.GetAxis ("RightStickY") > 0)
+			Debug.Log ("UP");
 	}
 }

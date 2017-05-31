@@ -19,15 +19,16 @@ public class CameraTrigger : MonoBehaviour {
 		cameraComponent = Camera.main.GetComponent<Camera> ();
 	}
 
-	void OnTriggerEnter()
+	void OnTriggerEnter(Collider c)
 	{
-		mainCameraScript.enabled = false;
-		Camera.main.transform.position = cameraTransform.position;
-		Camera.main.transform.rotation = cameraTransform.rotation;
-		cameraComponent.fieldOfView = fieldOfView;
-		//cameraComponent.rect.x = viewportRectX;
-		//cameraComponent.rect.y = viewportRectY;
-		//cameraComponent.rect.width = viewPort
-
+		if (c.tag == "Player") {
+			mainCameraScript.enabled = false;
+			Camera.main.transform.position = cameraTransform.position;
+			Camera.main.transform.rotation = cameraTransform.rotation;
+			cameraComponent.fieldOfView = fieldOfView;
+			//cameraComponent.rect.x = viewportRectX;
+			//cameraComponent.rect.y = viewportRectY;
+			//cameraComponent.rect.width = viewPort
+		}
 	}
 }
