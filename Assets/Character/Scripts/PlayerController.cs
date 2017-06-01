@@ -99,9 +99,23 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void GetAxis(){
-		if(Input.GetAxis("RightStickX") > 0)
-			Debug.Log("RIGHT");
-		if (Input.GetAxis ("RightStickY") > 0)
-			Debug.Log ("UP");
+		float RightStickX = Input.GetAxis ("RightStickX");
+		float RightStickY = Input.GetAxis ("RightStickY");
+
+		Vector3 forward = Camera.main.transform.forward;
+		if(Vector3.Dot(forward, Vector3.down) > (.707106f)){
+			forward = Camera.main.transform.up;
+		}
+		forward.y = 0;
+		forward.Normalize ();
+	
+		Vector3 right = Camera.main.transform.right;
+		right.y = 0;
+		right.Normalize ();
+
+		Vector3 targetHeading = forward * RightStickY + right * RightStickX;
+
+		transform.forward = targetHeading;
+
 	}
 }
