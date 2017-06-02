@@ -75,8 +75,8 @@ public class PlayerController : MonoBehaviour {
 		
 		if (Input.GetKeyDown (KeyCode.Keypad2))
 			anim.SetTrigger ("backFlip");
-
-		GetAxis ();
+		
+		StickShooterControls();
 	}
 	void FixedUpdate()
 	{
@@ -98,24 +98,28 @@ public class PlayerController : MonoBehaviour {
 		bulletBody.velocity = gameObject.transform.forward * projectileSpeed;
 	}
 
-	void GetAxis(){
+	void StickShooterControls(){
 		float RightStickX = Input.GetAxis ("RightStickX");
 		float RightStickY = Input.GetAxis ("RightStickY");
 
-		Vector3 forward = Camera.main.transform.forward;
-		if(Vector3.Dot(forward, Vector3.down) > (.707106f)){
-			forward = Camera.main.transform.up;
+		if (Mathf.Abs(Input.GetAxis ("RightStickX")) > 0.5f || Mathf.Abs(Input.GetAxis ("RightStickY")) > 0.5f) {
+			anim.SetBool ("LockedLocomotion", true);
+			Vector3 forward = Camera.main.transform.forward;
+			if (Vector3.Dot (forward, Vector3.down) > (.707106f)) {
+				forward = Camera.main.transform.up;
+			}
+			forward.y = 0;
+			forward.Normalize ();
+		
+			Vector3 right = Camera.main.transform.right;
+			right.y = 0;
+			right.Normalize ();
+
+			Vector3 targetHeading = forward * RightStickY + right * RightStickX;
+
+			transform.forward = targetHeading;
+		} else {
+			anim.SetBool ("LockedLocomotion", false);
 		}
-		forward.y = 0;
-		forward.Normalize ();
-	
-		Vector3 right = Camera.main.transform.right;
-		right.y = 0;
-		right.Normalize ();
-
-		Vector3 targetHeading = forward * RightStickY + right * RightStickX;
-
-		transform.forward = targetHeading;
-
 	}
 }
