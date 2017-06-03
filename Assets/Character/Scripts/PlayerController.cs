@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour {
 	public float maxSpeedChange = 0.3f;
 	public float maxTurnSpeed = 3.5f;
 	public float projectileSpeed = 5;
-	public GameObject projectile;
+	public string projectile = "projectile";
 	public GameObject projectileSpawn;
 	//public float maxForwardVelocity = 5f;
 	//public float maxTurnVelocity = 3.5f;
@@ -93,7 +93,8 @@ public class PlayerController : MonoBehaviour {
 		body.angularVelocity = Vector3.up * turnSpeed;
 	}
 	void ShootProjectile(){
-		GameObject bullet = Instantiate (projectile, (projectileSpawn.transform.position), Quaternion.identity);
+		GameObject bulletSpawn = Spawner.Spawn (projectile);
+		GameObject bullet = Instantiate (bulletSpawn, (projectileSpawn.transform.position), Quaternion.identity);
 		Rigidbody bulletBody = bullet.GetComponent<Rigidbody> ();
 		bulletBody.velocity = gameObject.transform.forward * projectileSpeed;
 	}
