@@ -48,4 +48,9 @@ public class Door : MonoBehaviour {
 		
 		}
 	}
+
+	public void UnlockDoor(){
+		door.GetComponent<MeshRenderer>().enabled = false;
+		door.GetComponent<BoxCollider> ().enabled = false;
+	}
 }

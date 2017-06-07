@@ -12,7 +12,6 @@ public class DamageController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider c){
-		Debug.Log (c);
 		gameObject.SetActive (false);
 		HealthController h = c.gameObject.GetComponent<HealthController> ();
 		if (h != null ) h.TakeDamage (damage);

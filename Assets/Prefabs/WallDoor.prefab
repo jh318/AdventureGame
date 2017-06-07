@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114633693173699288}
   - component: {fileID: 114810267149639146}
   - component: {fileID: 65565118025520286}
+  - component: {fileID: 114816969620737028}
   m_Layer: 0
   m_Name: WallDoor
   m_TagString: Untagged
@@ -144,7 +145,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1176679397795832}
   m_LocalRotation: {x: 0.4999979, y: 0.50000215, z: 0.50000215, w: -0.4999979}
-  m_LocalPosition: {x: 18.833933, y: 128.42644, z: -199.79941}
+  m_LocalPosition: {x: -2, y: 0, z: 13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4796720095203400}
@@ -349,3 +350,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 1188047603941112}
+--- !u!114 &114816969620737028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1176679397795832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18caa0f4e673eb84eaed85f120d53d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies: []
