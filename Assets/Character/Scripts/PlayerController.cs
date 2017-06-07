@@ -60,8 +60,9 @@ public class PlayerController : MonoBehaviour {
 		//if cooldown time is over, shoot bullet
 		if((Time.time - shootCooldownTimer > shootCoolDown) && Input.GetButton("Jump")){
 			//anim.SetTrigger ("fireball");
-			ShootProjectile ();
 			shootCooldownTimer = Time.time;
+
+			ShootProjectile ();
 		}
 		if (Input.GetButtonDown ("Fire2")) {
 			anim.SetTrigger ("fireball");
@@ -93,8 +94,8 @@ public class PlayerController : MonoBehaviour {
 		body.angularVelocity = Vector3.up * turnSpeed;
 	}
 	void ShootProjectile(){
-		GameObject bulletSpawn = Spawner.Spawn (projectile);
-		GameObject bullet = Instantiate (bulletSpawn, (projectileSpawn.transform.position), Quaternion.identity);
+		GameObject bullet = Spawner.Spawn (projectile);
+		bullet.transform.position = projectileSpawn.transform.position;
 		Rigidbody bulletBody = bullet.GetComponent<Rigidbody> ();
 		bulletBody.velocity = gameObject.transform.forward * projectileSpeed;
 	}
