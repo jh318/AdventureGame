@@ -20107,7 +20107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5be92eee8f906b4988229ecea0fbfdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 1e+10
   health: 100
 --- !u!114 &357404691
 MonoBehaviour:
@@ -56766,7 +56766,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4173594375787798, guid: d749e649d7d96c649930cf13bea47ffa, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.000017166138
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 4173594375787798, guid: d749e649d7d96c649930cf13bea47ffa, type: 2}
       propertyPath: m_LocalPosition.y
@@ -60642,7 +60642,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd81190f2d6d51d4d9de3b73e721d809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 2
+  pattern: 0
 --- !u!65 &1112086435
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -98579,6 +98580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  pattern: 0
 --- !u!114 &1782397410
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -28,7 +28,7 @@ public class EnemyShootController : MonoBehaviour {
 		}
 	}
 
-	void SpreadShot(int numberOfBullets){
+	public void SpreadShot(int numberOfBullets){
 		float speed = 3.0f;
 		for (int i = 0; i < numberOfBullets; ++i) {
 			float frac = (float)i / (float)(numberOfBullets - 1);
@@ -41,7 +41,7 @@ public class EnemyShootController : MonoBehaviour {
 		}
 	}
 
-	IEnumerator SinShot(int numberOfBullets){
+	public IEnumerator SinShot(int numberOfBullets){
 		float speed = 3.0f;
 		for (int i = 0; i < numberOfBullets; ++i) {
 			//0 for any pi multiple
