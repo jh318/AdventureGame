@@ -15,14 +15,17 @@ public class RoomUnlock : MonoBehaviour {
 	}
 
 	void Update(){
+		bool allDead = true;
 		for (int i = 0; i < enemies.Count; i++) {
 			if (enemies [i].activeSelf) {
+				allDead = false;
 				break;
-			} else if(i == enemies.Count-1 && !enemies[i].activeSelf){
-				Debug.Log ("UNLOCK");
-				doorScript.UnlockDoor ();
 			}
 		} 
+		if(allDead){
+			Debug.Log ("UNLOCK");
+			doorScript.UnlockDoor ();
+		}
 	}
 }
 	//Check if Enemies are disabled
