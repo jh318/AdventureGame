@@ -11,7 +11,7 @@ public class EnemyShootController : MonoBehaviour {
 	void Start(){
 		//TripleShot ();
 		//SpreadShot(spreadShotBullets);
-		StartCoroutine(SinShot(10));
+		//StartCoroutine(SinShot(10));
 	}
 
 	void TripleShot(){

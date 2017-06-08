@@ -15,14 +15,16 @@ public class Door : MonoBehaviour {
 		animator = GetComponentInChildren<Animator> ();
 	}
 		
-	void OnTriggerEnter()
+	void OnTriggerEnter(Collider c)
 	{
-		isColliding = true;
+		if (c.gameObject.tag == "Player")
+			isColliding = true;
 	}
 
-	void OnTriggerExit()
+	void OnTriggerExit(Collider c)
 	{
-		isColliding = false;
+		if (c.gameObject.tag == "Player")
+			isColliding = false;
 	}
 
 	void Update()
