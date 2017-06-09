@@ -40,8 +40,20 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Transform cam = Camera.main.transform;
-		Vector3 targetRight = Input.GetAxis ("Horizontal") * cam.right;
-		Vector3 targetForward = Input.GetAxis ("Vertical") * cam.up;
+		//if camera is pointing down
+		Vector3 targetRight;
+		Vector3 targetForward;
+		if (Vector3.Dot (cam.transform.forward, Vector3.down) > 0.707f) {
+			targetRight = Input.GetAxis ("Horizontal") * cam.right;
+			targetForward = Input.GetAxis ("Vertical") * cam.up;
+		} else { //Camera is side
+			targetRight = Input.GetAxis ("Horizontal") * cam.right;
+			targetForward = Input.GetAxis ("Vertical") * cam.forward;
+		}
+
+
+
+
 		targetVelocity = targetRight + targetForward;
 		targetVelocity.y = 0;
 		targetVelocity = targetVelocity.normalized * maxSpeed;
