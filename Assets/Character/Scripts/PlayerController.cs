@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour {
 	private Rigidbody body;
 	private Vector3 targetVelocity;
 	private float shootCooldownTimer;
+	private bool playerIsDead = false;
 
 	// Use this for initialization
 	void Start () {
@@ -28,11 +29,14 @@ public class PlayerController : MonoBehaviour {
 		anim = GetComponent<Animator>();
 		body = GetComponent<Rigidbody> ();
 		shootCooldownTimer = Time.time - shootCoolDown;
+		playerIsDead = false;
 	}
 
 	void AnimateHealth(float health, float prevHealth, float maxHealth){
 		if (health <= 0) {
 			anim.SetTrigger ("playerDeath");
+			PlayerDeath ();
+			playerIsDead = true;
 		} else if (health < prevHealth) {
 			anim.SetTrigger ("hitReactBackwards");
 		}
@@ -40,6 +44,8 @@ public class PlayerController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		if (playerIsDead)
+			return;
 		Transform cam = Camera.main.transform;
 		//if camera is pointing down
 		Vector3 targetRight;
@@ -140,5 +146,11 @@ public class PlayerController : MonoBehaviour {
 		} else {
 			anim.SetBool ("LockedLocomotion", false);
 		}
+	}
+
+	void PlayerDeath(){
+		body.velocity = Vector3.zero;
+		KillBox.instance.PlayerHasDied ();
+
 	}
 }
