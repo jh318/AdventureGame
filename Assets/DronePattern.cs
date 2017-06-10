@@ -6,6 +6,7 @@ public class DronePattern : MonoBehaviour {
 
 	public float speed;
 	public Pattern pattern;
+	public int projectileCount = 3;
 
 	private Rigidbody body;
 	public enum Pattern {RotateAndShoot, IdleAndShoot, SomethingElse};
@@ -45,7 +46,7 @@ public class DronePattern : MonoBehaviour {
 	IEnumerator RotateAndShoot(){
 		Rotate ();
 		while (pattern == Pattern.RotateAndShoot) {
-			shootComponent.SpreadShot (3);
+			shootComponent.SpreadShot (projectileCount);
 			yield return new WaitForSeconds (1.0f);
 		}
 		PatternSwitch ();
@@ -54,7 +55,7 @@ public class DronePattern : MonoBehaviour {
 	IEnumerator IdleAndShoot(){
 		body.angularVelocity = Vector3.zero;
 		while (pattern == Pattern.IdleAndShoot) {
-			shootComponent.SpreadShot (3);
+			shootComponent.SpreadShot (projectileCount);
 			yield return new WaitForSeconds (1.0f);
 		}
 		PatternSwitch ();
