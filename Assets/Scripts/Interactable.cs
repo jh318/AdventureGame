@@ -48,7 +48,7 @@ public class Interactable : MonoBehaviour {
 		
 	void InteractableInputCheck()
 	{
-		if (displayPrompt && Input.GetKeyDown(KeyCode.X)) 
+		if (displayPrompt && (Input.GetKeyDown(KeyCode.X) || Input.GetButtonDown("ActionButton"))) 
 		{
 			Debug.Log ("A");
 			displayText = true;
@@ -58,7 +58,7 @@ public class Interactable : MonoBehaviour {
 			textBox.gameObject.SetActive (true);
 		}
 
-		else if (displayText && Input.GetKeyDown (KeyCode.X)) 
+		else if (displayText && (Input.GetKeyDown (KeyCode.X) || Input.GetButtonDown("ActionButton"))) 
 		{
 			Debug.Log ("B");
 			displayPrompt = true;

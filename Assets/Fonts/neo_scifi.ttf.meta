@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: f7cb764089b77714ab7bf4deefe27f66
+timeCreated: 1497061698
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Neo Sci-Fi
+  fontNames:
+  - Neo Sci-Fi
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

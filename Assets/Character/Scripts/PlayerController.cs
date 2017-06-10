@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
 	//public float maxForwardVelocity = 5f;
 	//public float maxTurnVelocity = 3.5f;
 	public float shootCoolDown = 1.0f;
+	public float deceleration = 0.15f;
 
 	private Animator anim;
 	private HealthController health;
@@ -44,11 +45,11 @@ public class PlayerController : MonoBehaviour {
 		Vector3 targetRight;
 		Vector3 targetForward;
 		if (Vector3.Dot (cam.transform.forward, Vector3.down) > 0.707f) {
-			targetRight = Input.GetAxis ("Horizontal") * cam.right;
-			targetForward = Input.GetAxis ("Vertical") * cam.up;
+			targetRight = Input.GetAxisRaw ("Horizontal") * cam.right;
+			targetForward = Input.GetAxisRaw ("Vertical") * cam.up;
 		} else { //Camera is side
-			targetRight = Input.GetAxis ("Horizontal") * cam.right;
-			targetForward = Input.GetAxis ("Vertical") * cam.forward;
+			targetRight = Input.GetAxisRaw ("Horizontal") * cam.right;
+			targetForward = Input.GetAxisRaw ("Vertical") * cam.forward;
 		}
 
 
@@ -57,10 +58,14 @@ public class PlayerController : MonoBehaviour {
 		targetVelocity = targetRight + targetForward;
 		targetVelocity.y = 0;
 		targetVelocity = targetVelocity.normalized * maxSpeed;
+		//body.velocity = targetVelocity; // remove me to go back to the old days
 
 		Vector3 heading = body.velocity.normalized;
 		float forward = Vector3.Dot (heading, transform.forward);
 
+		if (targetVelocity.magnitude <= 0.1f) {
+			targetVelocity = -targetVelocity * deceleration;
+		}
 
 		float speed = body.velocity.magnitude;
 		anim.SetFloat ("speed", speed);
@@ -70,7 +75,7 @@ public class PlayerController : MonoBehaviour {
 
 		//Stupid Anim Stuff
 		//if cooldown time is over, shoot bullet
-		if((Time.time - shootCooldownTimer > shootCoolDown) && Input.GetButton("Jump")){
+		if((Time.time - shootCooldownTimer > shootCoolDown) && (Input.GetButton("Jump") || Input.GetButton("ShootGun"))){
 			//anim.SetTrigger ("fireball");
 			shootCooldownTimer = Time.time;
 
@@ -95,12 +100,12 @@ public class PlayerController : MonoBehaviour {
 	{
 		Vector3 v = body.velocity;
 		Vector3 heading = v.normalized;
-		float speed = v.magnitude;
+		float speed = v.magnitude; //Comment out here to go back to the old days
 
 		Vector3 velocityChange = targetVelocity - v;
 		velocityChange = velocityChange.normalized * Mathf.Clamp (velocityChange.magnitude, -maxSpeedChange, maxSpeedChange);
 		velocityChange.y = 0;
-		body.AddForce (velocityChange, ForceMode.VelocityChange);
+		body.AddForce (velocityChange, ForceMode.VelocityChange); //Comment out to here to go back to the old days
 
 		float turnSpeed = Vector3.Cross (transform.forward, heading).y * maxTurnSpeed;
 		body.angularVelocity = Vector3.up * turnSpeed;

@@ -35,7 +35,7 @@ public class Door : MonoBehaviour {
 
 	void ToggleDoor()
 	{
-		if (isColliding && Input.GetKeyDown (KeyCode.X))
+		if (isColliding && (Input.GetKeyDown (KeyCode.X) || Input.GetButtonDown("ActionButton")))
 		{	
 			if (door.GetComponent<MeshRenderer> ().enabled == false) {
 				door.GetComponent<MeshRenderer>().enabled = true;
