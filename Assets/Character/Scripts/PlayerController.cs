@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		RestartLevel ();
 		if (playerIsDead)
 			return;
 		Transform cam = Camera.main.transform;
@@ -152,5 +154,11 @@ public class PlayerController : MonoBehaviour {
 		body.velocity = Vector3.zero;
 		KillBox.instance.PlayerHasDied ();
 
+	}
+
+	void RestartLevel(){
+		if (Input.GetKeyDown(KeyCode.R)){
+			SceneManager.LoadScene ("animationScene1");
+		}
 	}
 }

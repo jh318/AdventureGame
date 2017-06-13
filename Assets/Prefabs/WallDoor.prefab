@@ -174,8 +174,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1176679397795832}
-  m_LocalRotation: {x: 0.50000364, y: -0.4999964, z: -0.4999964, w: -0.50000364}
-  m_LocalPosition: {x: 0, y: 0, z: 21}
+  m_LocalRotation: {x: 0.7071068, y: 0.0000040084124, z: 0.0000040084124, w: -0.7071068}
+  m_LocalPosition: {x: -6, y: 0, z: 17}
   m_LocalScale: {x: 1.0000005, y: 1.0000005, z: 1.0000005}
   m_Children:
   - {fileID: 4796720095203400}
@@ -185,7 +185,7 @@ Transform:
   - {fileID: 4321045089901384}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 449.999}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 359.999}
 --- !u!4 &4919037279785188
 Transform:
   m_ObjectHideFlags: 1
@@ -407,7 +407,7 @@ MonoBehaviour:
   textBox: {fileID: 0}
   promptBox: {fileID: 0}
   textBoxString: 
-  promptBoxString: Open (X)
+  promptBoxString: wwww
 --- !u!114 &114810267149639146
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -431,4 +431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18caa0f4e673eb84eaed85f120d53d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: []
+  enemies:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

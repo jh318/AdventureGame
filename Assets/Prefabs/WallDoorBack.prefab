@@ -108,4 +108,4 @@ MonoBehaviour:
   textBox: {fileID: 0}
   promptBox: {fileID: 0}
   textBoxString: 
-  promptBoxString: Open (X)
+  promptBoxString: 

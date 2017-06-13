@@ -17,11 +17,11 @@ public class RoomUnlock : MonoBehaviour {
 	void Update(){
 		bool allDead = true;
 		for (int i = 0; i < enemies.Count; i++) {
-			if (enemies [i].activeSelf) {
+			if (enemies[i] != null && enemies [i].activeSelf) {
 				allDead = false;
 				break;
-			}
-		} 
+			} 
+		}
 		if(allDead){
 			Debug.Log ("UNLOCK");
 			doorScript.UnlockDoor ();
