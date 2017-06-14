@@ -25,8 +25,15 @@ public class GameManager : MonoBehaviour {
 
 	public void RestartLevel(){
 		if (Input.GetKeyDown(KeyCode.R) || Input.GetButtonDown("RestartButton")){
-			SceneManager.LoadScene ("animationScene1");
-			gameStart = false;
+			StartCoroutine ("RestartLevelCoroutine");
 		}
+	}
+
+	IEnumerator RestartLevelCoroutine () {
+		SceneManager.LoadScene ("animationScene1");
+		gameStart = false;
+		yield return new WaitForEndOfFrame ();
+		yield return new WaitForEndOfFrame ();
+		TextManager.instance.textBox.gameObject.SetActive (true);
 	}
 }

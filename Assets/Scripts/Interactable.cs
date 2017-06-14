@@ -16,8 +16,8 @@ public class Interactable : MonoBehaviour {
 
 	void Start()
 	{
-		textBox = TextManager.instance.textBox;
-		promptBox = TextManager.instance.promptBox;
+		textBox = GameManager.instance.GetComponent<TextManager> ().textBox;
+		promptBox = GameManager.instance.GetComponent<TextManager>().promptBox;
 		textBox.gameObject.SetActive(false);
 		promptBox.gameObject.SetActive(false);
 	}

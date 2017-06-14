@@ -15,6 +15,7 @@ public class EnemyDeathController : MonoBehaviour {
 			GameObject tempParticle = Spawner.Spawn ("EnemyDeathParticles");
 			tempParticle.transform.position = gameObject.transform.position;
 			gameObject.SetActive (false);
+			AudioManager.PlayEffect (AudioManager.instance.clips [Random.Range (0, 20)]);
 		}
 
 	}

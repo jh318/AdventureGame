@@ -34,7 +34,7 @@ public class Spawner : MonoBehaviour {
 		}
 
 		List<GameObject> pool = instance.poolsDict[name];
-		GameObject g = pool.Find((i) => !i.activeSelf);
+		GameObject g = pool.Find((i) => i != null && !i.activeSelf);
 		if (g == null) {
 			g = Instantiate(instance.prefabsDict[name]) as GameObject;
 			pool.Add(g);
