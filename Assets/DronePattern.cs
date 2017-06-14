@@ -13,6 +13,8 @@ public class DronePattern : MonoBehaviour {
 	private EnemyShootController shootComponent;
 	bool rotate = false;
 
+
+
 	void Start(){
 		body = GetComponent<Rigidbody> ();
 		shootComponent = GetComponentInChildren<EnemyShootController> ();
@@ -45,7 +47,8 @@ public class DronePattern : MonoBehaviour {
 
 	IEnumerator RotateAndShoot(){
 		Rotate ();
-		while (pattern == Pattern.RotateAndShoot) {
+		yield return new WaitForSeconds (Random.value);
+		while (pattern == Pattern.RotateAndShoot && enabled) {
 			shootComponent.SpreadShot (projectileCount);
 			yield return new WaitForSeconds (1.0f);
 		}
@@ -54,7 +57,8 @@ public class DronePattern : MonoBehaviour {
 
 	IEnumerator IdleAndShoot(){
 		body.angularVelocity = Vector3.zero;
-		while (pattern == Pattern.IdleAndShoot) {
+		yield return new WaitForSeconds (Random.value);
+		while (pattern == Pattern.IdleAndShoot && enabled) {
 			shootComponent.SpreadShot (projectileCount);
 			yield return new WaitForSeconds (1.0f);
 		}

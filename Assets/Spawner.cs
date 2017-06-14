@@ -24,6 +24,14 @@ public class Spawner : MonoBehaviour {
 		}
 	}
 
+	public static void ResetPools() {
+		instance.poolsDict = new Dictionary<string, List<GameObject>>();
+
+		foreach (GameObject prefab in instance.prefabs) {
+			instance.poolsDict[prefab.name] = new List<GameObject>();
+		}
+	}
+
 	public static GameObject Spawn(string name) {
 		if (instance == null || 
 			string.IsNullOrEmpty(name) ||

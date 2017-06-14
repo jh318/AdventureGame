@@ -378,8 +378,8 @@ BlendTree:
     m_CycleOffset: 0.5
     m_DirectBlendParameter: forwardVelocity
     m_Mirror: 1
-  m_BlendParameter: forwardVelocity
-  m_BlendParameterY: strafeVelocity
+  m_BlendParameter: strafeVelocity
+  m_BlendParameterY: forwardVelocity
   m_MinThreshold: 0
   m_MaxThreshold: 1
   m_UseAutomaticThresholds: 0

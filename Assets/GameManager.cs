@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour {
 		if (instance == null) {
 			instance = this;
 		}
+
 	}
 
 	void Start(){
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	IEnumerator RestartLevelCoroutine () {
+		Spawner.ResetPools ();
 		SceneManager.LoadScene ("animationScene1");
 		gameStart = false;
 		yield return new WaitForEndOfFrame ();

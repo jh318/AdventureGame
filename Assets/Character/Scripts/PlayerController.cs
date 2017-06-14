@@ -85,6 +85,7 @@ public class PlayerController : MonoBehaviour {
 
 		Vector3 heading = body.velocity.normalized;
 		float forward = Vector3.Dot (heading, transform.forward);
+		float right = Vector3.Dot (heading, transform.right);
 
 		if (targetVelocity.magnitude <= 0.1f) {
 			targetVelocity = -targetVelocity * deceleration;
@@ -93,6 +94,7 @@ public class PlayerController : MonoBehaviour {
 		float speed = body.velocity.magnitude;
 		anim.SetFloat ("speed", speed);
 		anim.SetFloat ("forwardVelocity", forward * speed);
+		anim.SetFloat ("strafeVelocity", right * speed);
 		anim.SetFloat ("turnVelocity", body.angularVelocity.y);
 
 
@@ -155,6 +157,7 @@ public class PlayerController : MonoBehaviour {
 		
 			Vector3 right = Camera.main.transform.right;
 			right.y = 0;
+			//anim.SetFloat ("strafeVelocity", );
 			right.Normalize ();
 
 			Vector3 targetHeading = forward * RightStickY + right * RightStickX;
