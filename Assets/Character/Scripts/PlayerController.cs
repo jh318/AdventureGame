@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour {
 	private Vector3 targetVelocity;
 	private float shootCooldownTimer;
 	private bool playerIsDead = false;
+	private bool gameStart = false;
+	private CameraTricks cameraTricks;
 
 	// Use this for initialization
 	void Start () {
@@ -30,7 +32,10 @@ public class PlayerController : MonoBehaviour {
 		anim = GetComponent<Animator>();
 		body = GetComponent<Rigidbody> ();
 		shootCooldownTimer = Time.time - shootCoolDown;
+		cameraTricks = Camera.main.GetComponent<CameraTricks> ();
 		playerIsDead = false;
+		gameStart = false;
+		PlayIntro ();
 	}
 
 	void AnimateHealth(float health, float prevHealth, float maxHealth){
@@ -45,6 +50,7 @@ public class PlayerController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		StopIntro ();
 		RestartLevel ();
 		if (playerIsDead)
 			return;
@@ -157,8 +163,23 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void RestartLevel(){
-		if (Input.GetKeyDown(KeyCode.R)){
+		if (Input.GetKeyDown(KeyCode.R) || Input.GetButtonDown("RestartButton")){
 			SceneManager.LoadScene ("animationScene1");
+			gameStart = false;
+		}
+	}
+
+	void PlayIntro(){
+		TextManager.instance.textBox.text = "Begin Mission";
+		TextManager.instance.textBox.gameObject.SetActive (true);
+	}
+
+	void StopIntro(){
+		if (Input.anyKey)
+			gameStart = true;
+		if (gameStart) {
+			TextManager.instance.textBox.text = "";
+			TextManager.instance.textBox.gameObject.SetActive (false);
 		}
 	}
 }

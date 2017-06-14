@@ -18,4 +18,9 @@ public class TextManager : MonoBehaviour {
 			Destroy (gameObject);
 		}
 	}
+
+	IEnumerator Start () {
+		yield return new WaitForEndOfFrame ();
+		textBox.gameObject.SetActive (true);
+	}
 }

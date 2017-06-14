@@ -4,14 +4,33 @@ using UnityEngine;
 
 public class CameraTricks : MonoBehaviour {
 
+	public Transform playerTransform;
+	public float epicCircleDistance = 3;
+	public float epicCircleSpeed = 5;
+	public float epicCircleHeight = 1;
+	public Vector3 epicCircleLookOffset;
+
 	float transitionTime;
 	Transform targetTransform;
+
+	private bool gameStarted = false;
+
+	IEnumerator Start () {
+		while (!gameStarted) {
+			EpicCameraCircle ();
+			yield return new WaitForEndOfFrame ();
+			gameStarted = Input.anyKey;
+		}
+		StartCoroutine ("CameraLerp");
+	}
 
 	public void Move (Transform targetTransform, float transitionTime) {
 		this.transitionTime = transitionTime;
 		this.targetTransform = targetTransform;
-		StopCoroutine ("CameraLerp");
-		StartCoroutine ("CameraLerp");
+		if (gameStarted) {
+			StopCoroutine ("CameraLerp");
+			StartCoroutine ("CameraLerp");
+		}
 	}
 
 	IEnumerator CameraLerp(){
@@ -21,5 +40,11 @@ public class CameraTricks : MonoBehaviour {
 			transform.rotation = Quaternion.Slerp (transform.rotation, targetTransform.rotation, frac);
 			yield return new WaitForEndOfFrame ();
 		}
+	}
+
+	public void EpicCameraCircle(){
+		transform.LookAt(playerTransform.position + epicCircleLookOffset);
+		float t = Time.time * epicCircleSpeed;
+		transform.position = playerTransform.position + new Vector3 (Mathf.Sin (t), epicCircleHeight, Mathf.Cos (t)) * epicCircleDistance;
 	}
 }

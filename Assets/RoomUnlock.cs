@@ -23,7 +23,6 @@ public class RoomUnlock : MonoBehaviour {
 			} 
 		}
 		if(allDead){
-			Debug.Log ("UNLOCK");
 			doorScript.UnlockDoor ();
 		}
 	}
