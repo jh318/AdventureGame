@@ -12,6 +12,8 @@ public class EnemyDeathController : MonoBehaviour {
 
 	void OnTriggerEnter(Collider c){
 		if (enemyHealth.health <= 0) {
+			GameObject tempParticle = Spawner.Spawn ("EnemyDeathParticles");
+			tempParticle.transform.position = gameObject.transform.position;
 			gameObject.SetActive (false);
 		}
 

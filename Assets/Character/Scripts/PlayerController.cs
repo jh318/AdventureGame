@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
+	public static PlayerController instance;
+
 	public float maxSpeed = 5;
 	public float maxSpeedChange = 0.3f;
 	public float maxTurnSpeed = 3.5f;
@@ -22,8 +24,14 @@ public class PlayerController : MonoBehaviour {
 	private Vector3 targetVelocity;
 	private float shootCooldownTimer;
 	private bool playerIsDead = false;
-	private bool gameStart = false;
 	private CameraTricks cameraTricks;
+	public bool gameOver = false;
+
+	void Awake(){
+		if (instance == null)
+			instance = this;
+	}
+
 
 	// Use this for initialization
 	void Start () {
@@ -34,8 +42,9 @@ public class PlayerController : MonoBehaviour {
 		shootCooldownTimer = Time.time - shootCoolDown;
 		cameraTricks = Camera.main.GetComponent<CameraTricks> ();
 		playerIsDead = false;
-		gameStart = false;
+		//GameManager.instance.GameStart = false;
 		PlayIntro ();
+		gameOver = false;
 	}
 
 	void AnimateHealth(float health, float prevHealth, float maxHealth){
@@ -51,7 +60,7 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		StopIntro ();
-		RestartLevel ();
+		GameManager.instance.RestartLevel ();
 		if (playerIsDead)
 			return;
 		Transform cam = Camera.main.transform;
@@ -162,12 +171,7 @@ public class PlayerController : MonoBehaviour {
 
 	}
 
-	void RestartLevel(){
-		if (Input.GetKeyDown(KeyCode.R) || Input.GetButtonDown("RestartButton")){
-			SceneManager.LoadScene ("animationScene1");
-			gameStart = false;
-		}
-	}
+
 
 	void PlayIntro(){
 		TextManager.instance.textBox.text = "Begin Mission";
@@ -176,8 +180,8 @@ public class PlayerController : MonoBehaviour {
 
 	void StopIntro(){
 		if (Input.anyKey)
-			gameStart = true;
-		if (gameStart) {
+			GameManager.instance.GameStart = true;
+		if (GameManager.instance.GameStart && !gameOver) {
 			TextManager.instance.textBox.text = "";
 			TextManager.instance.textBox.gameObject.SetActive (false);
 		}
