@@ -24,6 +24,10 @@ public class GameManager : MonoBehaviour {
 		gameStart = false;
 	}
 
+	void Update(){
+		RestartLevel ();
+	}
+
 	public void RestartLevel(){
 		if (Input.GetKeyDown(KeyCode.R) || Input.GetButtonDown("RestartButton")){
 			StartCoroutine ("RestartLevelCoroutine");
