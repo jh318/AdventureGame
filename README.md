@@ -1,3 +1,3 @@
 # AdventureGame
 
-[Downloadable on Itch](https://jh318.itch.io/factory-gastsault)
+[Game downloadable here on itch.io](https://jh318.itch.io/factory-gastsault)
